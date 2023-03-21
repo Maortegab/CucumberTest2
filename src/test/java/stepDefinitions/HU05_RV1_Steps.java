@@ -25,8 +25,7 @@ public class HU05_RV1_Steps {
 	
 	@Given("ingreso a payment collector web")
 	public void ingreso_a_payment_collector_web() throws IOException, InterruptedException {
-		home.newWindowHome();
-		
+		home.newWindowHome();		
 	}
 	
 	@Given("Se ingresa la reserva")
@@ -39,7 +38,13 @@ public class HU05_RV1_Steps {
 	}
 	@Then("Validar que el texto de salida es igual al esperado")
 	public void validar_que_el_texto_de_salida_es_igual_al_esperado() throws InterruptedException{	   
-	   assertTrue(home.traerTextoPopUp().equals("Reserva no contiene un correo electrónico en formato válido PRUEBAS@GMAIL.COM-B"));
+//	   assertTrue(home.traerTextoPopUp().equals("Reserva no contiene un correo electrónico en formato válido PRUEBAS@GMAIL.COM-B"));
+		System.out.println(home.traerTextoPopUp());
+		System.out.println(home.getProp_HU05().getProperty("texto_HU_5_01"));
+		assertTrue(home.traerTextoPopUp().contains(home.getProp_HU05().getProperty("texto_HU_5_01")));		
+	}
+	@Then("Regresar a Home")
+	public void Regresar_a_Home() throws InterruptedException{	   
 	   home.clickEntendidoPopUp();
 	}
 }

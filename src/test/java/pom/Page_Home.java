@@ -1,6 +1,7 @@
 package pom;
 
 import java.io.IOException;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,10 +21,12 @@ public Page_Home(WebDriver driver) {
 	private By popUpTextContent = By.xpath("(//p[@class='text-content'])[1]");
 	private By popUpTitle = By.xpath("(//p[@class='text-warning'])[1]");
 	private By button_Entendido = By.xpath("(//button[@aria-label='Entendido'])[1]");
-	
+	private By buttonHome = By.xpath("(//img[@class='Icon-home'])[1]");
+			
 //	Métodos
 	public void newWindowHome() throws InterruptedException, IOException {
 //		System.out.println("reserva: " + properties.getProperty("res_HU_5_01"));
+		traerPropiedades();
 		newWindow();
 		autenticacion();
 	}
@@ -51,7 +54,13 @@ public Page_Home(WebDriver driver) {
 	
 	public void clickEntendidoPopUp() throws InterruptedException {
 		tiempoEspera(1, button_Entendido);
-		clickOn(button_Entendido);
-		
+		clickOn(button_Entendido);		
 	}
+	
+	public void clickHome() throws InterruptedException {
+		tiempoEspera(1, buttonHome);
+		clickOn(buttonHome);		
+	}
+
+	
 }

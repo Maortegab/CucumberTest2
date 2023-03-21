@@ -50,14 +50,14 @@ public class PageObject_Login extends BasePage {
 		// Ingresar user en la pagina de microsoft
 		tiempoEspera(5, inputCorreoMcsft);//		
 //		writeOn(inputCorreoMcsft, correo);
-		writeOn(inputCorreoMcsft, properties.getProperty("userNameDxc"));
+		writeOn(inputCorreoMcsft, getProperties().getProperty("userNameDxc"));
 		
 		clickOn(btnSiguienteUsuario);
 
 		// Ingresar user en okta
 		tiempoEspera(5, inputCorreoOkta);
-		writeOn(inputCorreoOkta, properties.getProperty("userNameDxc"));
-		writeOn(inputPasswordoOkta, properties.getProperty("passwordDxc"));
+		writeOn(inputCorreoOkta, getProperties().getProperty("userNameDxc"));
+		writeOn(inputPasswordoOkta, getProperties().getProperty("passwordDxc"));
 		clickOn(btnSingInOcta);
 		
 		tiempoEspera(5, btnsendPush);
@@ -78,14 +78,14 @@ public class PageObject_Login extends BasePage {
 
 		// Ingresar user en la pagina de microsoft		
 		tiempoEspera(5, inputCorreoMcsft);
-		writeOn(inputCorreoMcsft, properties.getProperty("userNameDxc"));
+		writeOn(inputCorreoMcsft, getProperties().getProperty("userNameDxc"));
 		clickOn(btnSiguienteUsuario);
 	}
 
 	public void ingresarUsuarioOkta() throws InterruptedException {
 
 		tiempoEspera(3, inputCorreoOkta);
-		writeOn(inputCorreoOkta, properties.getProperty("userNameDxc"));
+		writeOn(inputCorreoOkta, getProperties().getProperty("userNameDxc"));
 	}
 
 	public void UsuarioOktaVisible() throws InterruptedException {
@@ -96,7 +96,7 @@ public class PageObject_Login extends BasePage {
 
 	public void ingresarContraseñaOkta() throws InterruptedException {
 		
-		writeOn(inputPasswordoOkta, properties.getProperty("passwordDxc"));
+		writeOn(inputPasswordoOkta, getProperties().getProperty("passwordDxc"));
 	}
 
 	public void ContraseñaOktaVisible() throws InterruptedException {

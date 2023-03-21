@@ -28,6 +28,7 @@ Feature: HU 05 regla de validación No 1
     Given Se ingresa la reserva 
     When Se da click en botón gestión
     Then Validar que el texto de salida es igual al esperado
+    And Regresar a Home
     
     #Examples: 
       #| reserva  			 | textoError        |

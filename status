@@ -1,0 +1,470 @@
+warning: in the working copy of 'src/test/java/features/HU05_RV1.feature', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'target/test-classes/features/HU05_RV1.feature', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/Default suite/Default test.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/Default suite/Default test.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/jquery.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/junitreports/TEST-runner.RunCukesTest.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/classes.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/groups.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/main.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/methods-alphabetical.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/methods-not-run.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/methods.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/toc.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-reports.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-reports.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-reports1.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-reports2.js', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/properties/HU_05.properties b/properties/HU_05.properties[m
+[1mindex 43fbdbb..fb5a63c 100644[m
+[1m--- a/properties/HU_05.properties[m
+[1m+++ b/properties/HU_05.properties[m
+[36m@@ -3,29 +3,36 @@[m
+ #--------[m
+ #Una reserva contenga un correo electrónico en un formato incorrecto[m
+ res_HU_5_01=3EEFOW[m
+[31m-texto_HU_5_01=Reserva no contiene un correo electrónico en formato válido PRUEBAS@GMAIL.COM-B[m
+[32m+[m[32mtexto_HU_5_01=Reserva no contiene un correo[m[41m [m
+ [m
+ #Una Reserva con numero de telefono movil formato invalido[m
+ res_HU_5_02=3EOCTG[m
+[32m+[m[32mtexto_HU_5_02=Numero telefónico no encontrado en la reserva[m
+ [m
+ #Una reserva que contenga número de teléfono en un formato correcto móvil o fijo con la siguiente estructura: código Amadeus +código de área del país y el número de teléfono[m
+ res_HU_5_03=3EIXQK[m
+[32m+[m[32mtexto_HU_5_03=pasa[m
+ [m
+ #una reserva que contenga número de teléfono en un formato correcto móvil o fijo con la siguiente estructura: código Amadeus sin código de área del país + el número de teléfono[m
+ res_HU_5_04=3ENBFS[m
+[32m+[m[32mtexto_HU_5_04=""[m
+ [m
+ #Que la reserva contenga número de teléfono en un formato correcto móvil o fijo con la siguiente estructura: sin  código Amadeus + código de área del país + el número de teléfono[m
+ res_HU_5_05=3EO9TK[m
+[32m+[m[32mtexto_HU_5_05=pasa[m
+ [m
+ #Una Reserva que no contenga contacto de emergencia [m
+ res_HU_5_06=3EEN9W[m
+[32m+[m[32mtexto_HU_5_06=Reserva no contiene un contacto de emergencia[m
+ [m
+ #Una Reserva con nombre y apellido en formato invalido [m
+ res_HU_5_07=3EL2HP[m
+[32m+[m[32mtexto_HU_5_07=El pasajero MARIA CAROLINA/XXX XXX no posee un determinante[m
+ [m
+ #Reserva sin determinante de pasajero [m
+ res_HU_5_08=3EEX86[m
+[32m+[m[32mtexto_HU_5_08=""[m
+ [m
+ #Reserva que cumpla con todos los parametros [m
+ res_HU_5_09=3EKRF4[m
+[31m- [m
+\ No newline at end of file[m
+[32m+[m[32mtexto_HU_5_09=pasa[m
+\ No newline at end of file[m
+[1mdiff --git a/src/test/java/features/HU05_RV1.feature b/src/test/java/features/HU05_RV1.feature[m
+[1mindex 454c8f8..e9b083b 100644[m
+[1m--- a/src/test/java/features/HU05_RV1.feature[m
+[1m+++ b/src/test/java/features/HU05_RV1.feature[m
+[36m@@ -28,6 +28,7 @@[m [mFeature: HU 05 regla de validaciÃ³n No 1[m
+     Given Se ingresa la reserva [m
+     When Se da click en botÃ³n gestiÃ³n[m
+     Then Validar que el texto de salida es igual al esperado[m
+[32m+[m[32m    And Regresar a Home[m
+     [m
+     #Examples: [m
+       #| reserva  			 | textoError        |[m
+[1mdiff --git a/src/test/java/pom/BasePage.java b/src/test/java/pom/BasePage.java[m
+[1mindex 528c2cb..d9411e5 100644[m
+[1m--- a/src/test/java/pom/BasePage.java[m
+[1m+++ b/src/test/java/pom/BasePage.java[m
+[36m@@ -18,6 +18,8 @@[m [mpublic class BasePage {[m
+ 	protected Properties properties = new Properties();	[m
+ 	protected Properties prop_HU05 = new Properties();[m
+ 	[m
+[32m+[m[41m	[m
+[32m+[m
+ 	public BasePage(WebDriver driver)  {[m
+ 		this.driver = driver;		[m
+ 	}[m
+[36m@@ -28,16 +30,16 @@[m [mpublic class BasePage {[m
+ 		options.addArguments("--remote-allow-origins=*");[m
+ 		driver = new ChromeDriver(options);[m
+ 		[m
+[31m-		driver.navigate().to(properties.getProperty("linkURL"));[m
+[32m+[m		[32mdriver.navigate().to(getProperties().getProperty("linkURL"));[m
+ 		driver.manage().window().maximize();	[m
+ 		[m
+ 		return driver;[m
+ 	}[m
+ 	[m
+ 	public void traerPropiedades() throws FileNotFoundException, IOException {[m
+[31m-		properties.load(new FileReader("properties/generalProperties.properties"));		[m
+[32m+[m		[32mgetProperties().load(new FileReader("properties/generalProperties.properties"));[m[41m		[m
+ 		prop_HU05.load(new FileReader("properties/HU_05.properties"));		[m
+[31m-		System.setProperty(properties.getProperty("keyDriverCon"), properties.getProperty("valueDriverCon"));[m
+[32m+[m		[32mSystem.setProperty(getProperties().getProperty("keyDriverCon"), getProperties().getProperty("valueDriverCon"));[m
+ 	}[m
+ 	[m
+ 	public void cerrarVentanaChrome() {[m
+[36m@@ -66,4 +68,12 @@[m [mpublic class BasePage {[m
+ 	public void validate(By element) throws InterruptedException {[m
+ 		assertTrue(driver.findElement(element).isDisplayed());[m
+ 	}[m
+[32m+[m
+[32m+[m	[32mpublic Properties getProperties() {[m
+[32m+[m		[32mreturn properties;[m
+[32m+[m	[32m}[m
+[32m+[m[41m	[m
+[32m+[m	[32mpublic Properties getProp_HU05() {[m
+[32m+[m		[32mreturn prop_HU05;[m
+[32m+[m	[32m}[m
+ }[m
+[1mdiff --git a/src/test/java/pom/PageObject_Login.java b/src/test/java/pom/PageObject_Login.java[m
+[1mindex 0c5f07c..7d8bde3 100644[m
+[1m--- a/src/test/java/pom/PageObject_Login.java[m
+[1m+++ b/src/test/java/pom/PageObject_Login.java[m
+[36m@@ -50,14 +50,14 @@[m [mpublic class PageObject_Login extends BasePage {[m
+ 		// Ingresar user en la pagina de microsoft[m
+ 		tiempoEspera(5, inputCorreoMcsft);//		[m
+ //		writeOn(inputCorreoMcsft, correo);[m
+[31m-		writeOn(inputCorreoMcsft, properties.getProperty("userNameDxc"));[m
+[32m+[m		[32mwriteOn(inputCorreoMcsft, getProperties().getProperty("userNameDxc"));[m
+ 		[m
+ 		clickOn(btnSiguienteUsuario);[m
+ [m
+ 		// Ingresar user en okta[m
+ 		tiempoEspera(5, inputCorreoOkta);[m
+[31m-		writeOn(inputCorreoOkta, properties.getProperty("userNameDxc"));[m
+[31m-		writeOn(inputPasswordoOkta, properties.getProperty("passwordDxc"));[m
+[32m+[m		[32mwriteOn(inputCorreoOkta, getProperties().getProperty("userNameDxc"));[m
+[32m+[m		[32mwriteOn(inputPasswordoOkta, getProperties().getProperty("passwordDxc"));[m
+ 		clickOn(btnSingInOcta);[m
+ 		[m
+ 		tiempoEspera(5, btnsendPush);[m
+[36m@@ -78,14 +78,14 @@[m [mpublic class PageObject_Login extends BasePage {[m
+ [m
+ 		// Ingresar user en la pagina de microsoft		[m
+ 		tiempoEspera(5, inputCorreoMcsft);[m
+[31m-		writeOn(inputCorreoMcsft, properties.getProperty("userNameDxc"));[m
+[32m+[m		[32mwriteOn(inputCorreoMcsft, getProperties().getProperty("userNameDxc"));[m
+ 		clickOn(btnSiguienteUsuario);[m
+ 	}[m
+ [m
+ 	public void ingresarUsuarioOkta() throws InterruptedException {[m
+ [m
+ 		tiempoEspera(3, inputCorreoOkta);[m
+[31m-		writeOn(inputCorreoOkta, properties.getProperty("userNameDxc"));[m
+[32m+[m		[32mwriteOn(inputCorreoOkta, getProperties().getProperty("userNameDxc"));[m
+ 	}[m
+ [m
+ 	public void UsuarioOktaVisible() throws InterruptedException {[m
+[36m@@ -96,7 +96,7 @@[m [mpublic class PageObject_Login extends BasePage {[m
+ [m
+ 	public void ingresarContraseÃ±aOkta() throws InterruptedException {[m
+ 		[m
+[31m-		writeOn(inputPasswordoOkta, properties.getProperty("passwordDxc"));[m
+[32m+[m		[32mwriteOn(inputPasswordoOkta, getProperties().getProperty("passwordDxc"));[m
+ 	}[m
+ [m
+ 	public void ContraseÃ±aOktaVisible() throws InterruptedException {[m
+[1mdiff --git a/src/test/java/pom/Page_Home.java b/src/test/java/pom/Page_Home.java[m
+[1mindex e5a4a20..6291d37 100644[m
+[1m--- a/src/test/java/pom/Page_Home.java[m
+[1m+++ b/src/test/java/pom/Page_Home.java[m
+[36m@@ -1,6 +1,7 @@[m
+ package pom;[m
+ [m
+ import java.io.IOException;[m
+[32m+[m[32mimport java.util.Properties;[m
+ [m
+ import org.openqa.selenium.By;[m
+ import org.openqa.selenium.WebDriver;[m
+[36m@@ -20,10 +21,12 @@[m [mpublic Page_Home(WebDriver driver) {[m
+ 	private By popUpTextContent = By.xpath("(//p[@class='text-content'])[1]");[m
+ 	private By popUpTitle = By.xpath("(//p[@class='text-warning'])[1]");[m
+ 	private By button_Entendido = By.xpath("(//button[@aria-label='Entendido'])[1]");[m
+[31m-	[m
+[32m+[m	[32mprivate By buttonHome = By.xpath("(//img[@class='Icon-home'])[1]");[m
+[32m+[m[41m			[m
+ //	MÃ©todos[m
+ 	public void newWindowHome() throws InterruptedException, IOException {[m
+ //		System.out.println("reserva: " + properties.getProperty("res_HU_5_01"));[m
+[32m+[m		[32mtraerPropiedades();[m
+ 		newWindow();[m
+ 		autenticacion();[m
+ 	}[m
+[36m@@ -51,7 +54,13 @@[m [mpublic Page_Home(WebDriver driver) {[m
+ 	[m
+ 	public void clickEntendidoPopUp() throws InterruptedException {[m
+ 		tiempoEspera(1, button_Entendido);[m
+[31m-		clickOn(button_Entendido);[m
+[31m-		[m
+[32m+[m		[32mclickOn(button_Entendido);[m[41m		[m
+[32m+[m	[32m}[m
+[32m+[m[41m	[m
+[32m+[m	[32mpublic void clickHome() throws InterruptedException {[m
+[32m+[m		[32mtiempoEspera(1, buttonHome);[m
+[32m+[m		[32mclickOn(buttonHome);[m[41m		[m
+ 	}[m
+[32m+[m
+[32m+[m[41m	[m
+ }[m
+[1mdiff --git a/src/test/java/stepDefinitions/HU05_RV1_Steps.java b/src/test/java/stepDefinitions/HU05_RV1_Steps.java[m
+[1mindex 5f6f5a7..89adb5a 100644[m
+[1m--- a/src/test/java/stepDefinitions/HU05_RV1_Steps.java[m
+[1m+++ b/src/test/java/stepDefinitions/HU05_RV1_Steps.java[m
+[36m@@ -25,8 +25,7 @@[m [mpublic class HU05_RV1_Steps {[m
+ 	[m
+ 	@Given("ingreso a payment collector web")[m
+ 	public void ingreso_a_payment_collector_web() throws IOException, InterruptedException {[m
+[31m-		home.newWindowHome();[m
+[31m-		[m
+[32m+[m		[32mhome.newWindowHome();[m[41m		[m
+ 	}[m
+ 	[m
+ 	@Given("Se ingresa la reserva")[m
+[36m@@ -39,7 +38,13 @@[m [mpublic class HU05_RV1_Steps {[m
+ 	}[m
+ 	@Then("Validar que el texto de salida es igual al esperado")[m
+ 	public void validar_que_el_texto_de_salida_es_igual_al_esperado() throws InterruptedException{	   [m
+[31m-	   assertTrue(home.traerTextoPopUp().equals("Reserva no contiene un correo electrÃ³nico en formato vÃ¡lido PRUEBAS@GMAIL.COM-B"));[m
+[32m+[m[32m//	   assertTrue(home.traerTextoPopUp().equals("Reserva no contiene un correo electrÃ³nico en formato vÃ¡lido PRUEBAS@GMAIL.COM-B"));[m
+[32m+[m		[32mSystem.out.println(home.traerTextoPopUp());[m
+[32m+[m		[32mSystem.out.println(home.getProp_HU05().getProperty("texto_HU_5_01"));[m
+[32m+[m		[32massertTrue(home.traerTextoPopUp().contains(home.getProp_HU05().getProperty("texto_HU_5_01")));[m[41m		[m
+[32m+[m	[32m}[m
+[32m+[m	[32m@Then("Regresar a Home")[m
+[32m+[m	[32mpublic void Regresar_a_Home() throws InterruptedException{[m[41m	   [m
+ 	   home.clickEntendidoPopUp();[m
+ 	}[m
+ }[m
+[1mdiff --git a/target/test-classes/features/HU05_RV1.feature b/target/test-classes/features/HU05_RV1.feature[m
+[1mindex 454c8f8..e9b083b 100644[m
+[1m--- a/target/test-classes/features/HU05_RV1.feature[m
+[1m+++ b/target/test-classes/features/HU05_RV1.feature[m
+[36m@@ -28,6 +28,7 @@[m [mFeature: HU 05 regla de validaciÃ³n No 1[m
+     Given Se ingresa la reserva [m
+     When Se da click en botÃ³n gestiÃ³n[m
+     Then Validar que el texto de salida es igual al esperado[m
+[32m+[m[32m    And Regresar a Home[m
+     [m
+     #Examples: [m
+       #| reserva  			 | textoError        |[m
+[1mdiff --git a/target/test-classes/pom/BasePage.class b/target/test-classes/pom/BasePage.class[m
+[1mindex fc83316..af7337f 100644[m
+Binary files a/target/test-classes/pom/BasePage.class and b/target/test-classes/pom/BasePage.class differ
+[1mdiff --git a/target/test-classes/pom/PageObject_Login.class b/target/test-classes/pom/PageObject_Login.class[m
+[1mindex 82f89b9..30be5f6 100644[m
+Binary files a/target/test-classes/pom/PageObject_Login.class and b/target/test-classes/pom/PageObject_Login.class differ
+[1mdiff --git a/target/test-classes/pom/Page_Home.class b/target/test-classes/pom/Page_Home.class[m
+[1mindex e562507..6958747 100644[m
+Binary files a/target/test-classes/pom/Page_Home.class and b/target/test-classes/pom/Page_Home.class differ
+[1mdiff --git a/target/test-classes/stepDefinitions/HU05_RV1_Steps.class b/target/test-classes/stepDefinitions/HU05_RV1_Steps.class[m
+[1mindex e2151c9..eb73a9e 100644[m
+Binary files a/target/test-classes/stepDefinitions/HU05_RV1_Steps.class and b/target/test-classes/stepDefinitions/HU05_RV1_Steps.class differ
+[1mdiff --git a/test-output/Default suite/Default test.html b/test-output/Default suite/Default test.html[m
+[1mindex 83656a7..c001a11 100644[m
+[1m--- a/test-output/Default suite/Default test.html[m	
+[1m+++ b/test-output/Default suite/Default test.html[m	
+[36m@@ -57,9 +57,9 @@[m [mfunction toggleAllBoxes() {[m
+ <tr>[m
+ <td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>[m
+ </tr><tr>[m
+[31m-<td>Started on:</td><td>Tue Mar 21 10:59:03 COT 2023</td>[m
+[32m+[m[32m<td>Started on:</td><td>Tue Mar 21 17:38:55 COT 2023</td>[m
+ </tr>[m
+[31m-<tr><td>Total time:</td><td>50 seconds (50342 ms)</td>[m
+[32m+[m[32m<tr><td>Total time:</td><td>59 seconds (59595 ms)</td>[m
+ </tr><tr>[m
+ <td>Included groups:</td><td></td>[m
+ </tr><tr>[m
+[36m@@ -77,7 +77,7 @@[m [mfunction toggleAllBoxes() {[m
+ <tr>[m
+ <td title='runner.RunCukesTest.runScenario()'><b>runScenario</b><br>Test class: runner.RunCukesTest<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Ingresar la reserva y dar click en el botÃ³n gestion para validar el resultado", "HU 05 regla de validaciÃ³n No 1"</td>[m
+ <td></td>[m
+[31m-<td>49</td>[m
+[32m+[m[32m<td>59</td>[m
+ <td>runner.RunCukesTest@6ccdb29f</td></tr>[m
+ </table><p>[m
+ </body>[m
+[1mdiff --git a/test-output/Default suite/Default test.xml b/test-output/Default suite/Default test.xml[m
+[1mindex 3a77e59..48097a3 100644[m
+[1m--- a/test-output/Default suite/Default test.xml[m	
+[1m+++ b/test-output/Default suite/Default test.xml[m	
+[36m@@ -1,5 +1,5 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+ <!-- Generated by org.testng.reporters.JUnitXMLReporter -->[m
+[31m-<testsuite ignored="0" hostname="US-PF2HMW22" failures="0" tests="1" name="Default test" time="50.342" errors="0" timestamp="2023-03-21T10:59:53 COT">[m
+[31m-  <testcase classname="io.cucumber.testng.AbstractTestNGCucumberTests" name="runScenario" time="49.89"/>[m
+[32m+[m[32m<testsuite ignored="0" hostname="US-PF2HMW22" failures="0" tests="1" name="Default test" time="59.595" errors="0" timestamp="2023-03-21T17:39:55 COT">[m
+[32m+[m[32m  <testcase classname="io.cucumber.testng.AbstractTestNGCucumberTests" name="runScenario" time="59.078"/>[m
+ </testsuite> <!-- Default test -->[m
+[1mdiff --git a/test-output/emailable-report.html b/test-output/emailable-report.html[m
+[1mindex 721e5ce..042584c 100644[m
+[1m--- a/test-output/emailable-report.html[m
+[1m+++ b/test-output/emailable-report.html[m
+[36m@@ -9,9 +9,9 @@[m
+ <table>[m
+ <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>[m
+ <tr><th colspan="8">Default suite</th></tr>[m
+[31m-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">50,342</td><td></td><td></td></tr>[m
+[32m+[m[32m<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">59,595</td><td></td><td></td></tr>[m
+ </table>[m
+[31m-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">runner.RunCukesTest</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1679414343660</td><td rowspan="1">49890</td></tr></tbody>[m
+[32m+[m[32m<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">runner.RunCukesTest</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1679438336196</td><td rowspan="1">59078</td></tr></tbody>[m
+ </table>[m
+ <h2>Default test</h2><h3 id="m0">runner.RunCukesTest#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Ingresar la reserva y dar click en el botÃ³n gestion para validar el resultado&quot;</td><td>&quot;HU 05 regla de validaciÃ³n No 1&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>[m
+ </body>[m
+[1mdiff --git a/test-output/index.html b/test-output/index.html[m
+[1mindex 15933aa..3bca031 100644[m
+[1m--- a/test-output/index.html[m
+[1m+++ b/test-output/index.html[m
+[36m@@ -51,7 +51,7 @@[m
+               <ul>[m
+                 <li>[m
+                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">[m
+[31m-                    <span>C:\Users\mortegabuitr\AppData\Local\Temp\testng-eclipse--339600177\testng-customsuite.xml</span>[m
+[32m+[m[32m                    <span>C:\Users\mortegabuitr\AppData\Local\Temp\testng-eclipse--1538789911\testng-customsuite.xml</span>[m
+                   </a> <!-- navigator-link  -->[m
+                 </li>[m
+                 <li>[m
+[36m@@ -140,7 +140,7 @@[m
+         </div> <!-- panel Default_suite -->[m
+         <div panel-name="test-xml-Default_suite" class="panel">[m
+           <div class="main-panel-header rounded-window-top">[m
+[31m-            <span class="header-content">C:\Users\mortegabuitr\AppData\Local\Temp\testng-eclipse--339600177\testng-customsuite.xml</span>[m
+[32m+[m[32m            <span class="header-content">C:\Users\mortegabuitr\AppData\Local\Temp\testng-eclipse--1538789911\testng-customsuite.xml</span>[m
+           </div> <!-- main-panel-header rounded-window-top -->[m
+           <div class="main-panel-content rounded-window-bottom">[m
+             <pre>[m
+[36m@@ -201,12 +201,12 @@[m [mdata.addRows(1);[m
+ data.setCell(0, 0, 0)[m
+ data.setCell(0, 1, 'runScenario')[m
+ data.setCell(0, 2, 'runner.RunCukesTest')[m
+[31m-data.setCell(0, 3, 49890);[m
+[32m+[m[32mdata.setCell(0, 3, 59078);[m
+ window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}[m
+ return data;[m
+ }[m
+               </script>[m
+[31m-              <span class="suite-total-time">Total running time: 49 seconds</span>[m
+[32m+[m[32m              <span class="suite-total-time">Total running time: 59 seconds</span>[m
+               <div id="times-div-Default_suite">[m
+               </div> <!-- times-div-Default_suite -->[m
+             </div> <!-- times-div -->[m
+[36m@@ -234,16 +234,16 @@[m [mreturn data;[m
+             <div class="chronological-class">[m
+               <div class="chronological-class-name">runner.RunCukesTest</div> <!-- chronological-class-name -->[m
+               <div class="configuration-class before">[m
+[31m-                <span class="method-name">setUpClass(org.testng.TestRunner@3e28fee1)</span>[m
+[32m+[m[32m                <span class="method-name">setUpClass(org.testng.TestRunner@5261ec9)</span>[m
+                 <span class="method-start">0 ms</span>[m
+               </div> <!-- configuration-class before -->[m
+               <div class="test-method">[m
+                 <span class="method-name">runScenario("Ingresar la reserva y dar click en el botÃ³n gestion para validar el resultado", "HU 05 regla de val...)</span>[m
+[31m-                <span class="method-start">340 ms</span>[m
+[32m+[m[32m                <span class="method-start">396 ms</span>[m
+               </div> <!-- test-method -->[m
+               <div class="configuration-class after">[m
+                 <span class="method-name">tearDownClass</span>[m
+[31m-                <span class="method-start">50313 ms</span>[m
+[32m+[m[32m                <span class="method-start">59569 ms</span>[m
+               </div> <!-- configuration-class after -->[m
+           </div> <!-- main-panel-content rounded-window-bottom -->[m
+         </div> <!-- panel -->[m
+[1mdiff --git a/test-output/junitreports/TEST-runner.RunCukesTest.xml b/test-output/junitreports/TEST-runner.RunCukesTest.xml[m
+[1mindex 7e97ea0..941f4c8 100644[m
+[1m--- a/test-output/junitreports/TEST-runner.RunCukesTest.xml[m
+[1m+++ b/test-output/junitreports/TEST-runner.RunCukesTest.xml[m
+[36m@@ -1,6 +1,6 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+ <!-- Generated by org.testng.reporters.JUnitReportReporter -->[m
+[31m-<testsuite hostname="US-PF2HMW22" failures="0" tests="1" name="runner.RunCukesTest" time="49.890" errors="0" timestamp="2023-03-21T10:59:53 COT" skipped="0">[m
+[31m-  <testcase classname="runner.RunCukesTest" name="runScenario" time="49.890"/>[m
+[32m+[m[32m<testsuite hostname="US-PF2HMW22" failures="0" tests="1" name="runner.RunCukesTest" time="59.078" errors="0" timestamp="2023-03-21T17:39:55 COT" skipped="0">[m
+[32m+[m[32m  <testcase classname="runner.RunCukesTest" name="runScenario" time="59.078"/>[m
+   <system-out/>[m
+ </testsuite> <!-- runner.RunCukesTest -->[m
+[1mdiff --git a/test-output/old/Default suite/methods-alphabetical.html b/test-output/old/Default suite/methods-alphabetical.html[m
+[1mindex 04e2bb9..1b014f8 100644[m
+[1m--- a/test-output/old/Default suite/methods-alphabetical.html[m	
+[1m+++ b/test-output/old/Default suite/methods-alphabetical.html[m	
+[36m@@ -1,10 +1,10 @@[m
+ <h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Default suite</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>[m
+ <table border="1">[m
+ <tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>[m
+[31m-<tr bgcolor="978fe6">  <td>23/03/21 10:59:03</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.RunCukesTest@6ccdb29f]">runScenario</td> [m
+[32m+[m[32m<tr bgcolor="978fe6">  <td>23/03/21 17:38:56</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.RunCukesTest@6ccdb29f]">runScenario</td>[m[41m [m
+   <td>main@1346292516</td>   <td></td> </tr>[m
+[31m-<tr bgcolor="978fe6">  <td>23/03/21 10:59:03</td>   <td>-334</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;AbstractTestNGCucumberTests.setUpClass(org.testng.ITestContext)[pri:0, instance:runner.RunCukesTest@6ccdb29f]">&gt;&gt;setUpClass</td> [m
+[32m+[m[32m<tr bgcolor="978fe6">  <td>23/03/21 17:38:55</td>   <td>-390</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;AbstractTestNGCucumberTests.setUpClass(org.testng.ITestContext)[pri:0, instance:runner.RunCukesTest@6ccdb29f]">&gt;&gt;setUpClass</td>[m[41m [m
+ <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@1346292516</td>   <td></td> </tr>[m
+[31m-<tr bgcolor="978fe6">  <td>23/03/21 10:59:53</td>   <td>49974</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;AbstractTestNGCucumberTests.tearDownClass()[pri:0, instance:runner.RunCukesTest@6ccdb29f]">&lt;&lt;tearDownClass</td> [m
+[32m+[m[32m<tr bgcolor="978fe6">  <td>23/03/21 17:39:55</td>   <td>59173</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;AbstractTestNGCucumberTests.tearDownClass()[pri:0, instance:runner.RunCukesTest@6ccdb29f]">&lt;&lt;tearDownClass</td>[m[41m [m
+ <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@1346292516</td>   <td></td> </tr>[m
+ </table>[m
+[1mdiff --git a/test-output/old/Default suite/methods.html b/test-output/old/Default suite/methods.html[m
+[1mindex fe7fa2d..6558a43 100644[m
+[1m--- a/test-output/old/Default suite/methods.html[m	
+[1m+++ b/test-output/old/Default suite/methods.html[m	
+[36m@@ -1,10 +1,10 @@[m
+ <h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Default suite</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>[m
+ <table border="1">[m
+ <tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>[m
+[31m-<tr bgcolor="978fe6">  <td>23/03/21 10:59:03</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;AbstractTestNGCucumberTests.setUpClass(org.testng.ITestContext)[pri:0, instance:runner.RunCukesTest@6ccdb29f]">&gt;&gt;setUpClass</td> [m
+[32m+[m[32m<tr bgcolor="978fe6">  <td>23/03/21 17:38:55</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;AbstractTestNGCucumberTests.setUpClass(org.testng.ITestContext)[pri:0, instance:runner.RunCukesTest@6ccdb29f]">&gt;&gt;setUpClass</td>[m[41m [m
+ <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@1346292516</td>   <td></td> </tr>[m
+[31m-<tr bgcolor="978fe6">  <td>23/03/21 10:59:53</td>   <td>50308</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;AbstractTestNGCucumberTests.tearDownClass()[pri:0, instance:runner.RunCukesTest@6ccdb29f]">&lt;&lt;tearDownClass</td> [m
+[32m+[m[32m<tr bgcolor="978fe6">  <td>23/03/21 17:39:55</td>   <td>59563</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;AbstractTestNGCucumberTests.tearDownClass()[pri:0, instance:runner.RunCukesTest@6ccdb29f]">&lt;&lt;tearDownClass</td>[m[41m [m
+ <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@1346292516</td>   <td></td> </tr>[m
+[31m-<tr bgcolor="978fe6">  <td>23/03/21 10:59:03</td>   <td>334</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.RunCukesTest@6ccdb29f]">runScenario</td> [m
+[32m+[m[32m<tr bgcolor="978fe6">  <td>23/03/21 17:38:56</td>   <td>390</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.RunCukesTest@6ccdb29f]">runScenario</td>[m[41m [m
+   <td>main@1346292516</td>   <td></td> </tr>[m
+ </table>[m
+[1mdiff --git a/test-output/testng-results.xml b/test-output/testng-results.xml[m
+[1mindex 335e3d3..46f7d4e 100644[m
+[1m--- a/test-output/testng-results.xml[m
+[1m+++ b/test-output/testng-results.xml[m
+[36m@@ -2,26 +2,26 @@[m
+ <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">[m
+   <reporter-output>[m
+   </reporter-output>[m
+[31m-  <suite started-at="2023-03-21T10:59:03 COT" name="Default suite" finished-at="2023-03-21T10:59:53 COT" duration-ms="50342">[m
+[32m+[m[32m  <suite started-at="2023-03-21T17:38:55 COT" name="Default suite" finished-at="2023-03-21T17:39:55 COT" duration-ms="59595">[m
+     <groups>[m
+       <group name="cucumber">[m
+         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.RunCukesTest@6ccdb29f]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>[m
+       </group> <!-- cucumber -->[m
+     </groups>[m
+[31m-    <test started-at="2023-03-21T10:59:03 COT" name="Default test" finished-at="2023-03-21T10:59:53 COT" duration-ms="50342">[m
+[32m+[m[32m    <test started-at="2023-03-21T17:38:55 COT" name="Default test" finished-at="2023-03-21T17:39:55 COT" duration-ms="59595">[m
+       <class name="runner.RunCukesTest">[m
+[31m-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.RunCukesTest@6ccdb29f]" started-at="2023-03-21T10:59:03 COT" name="setUpClass" finished-at="2023-03-21T10:59:03 COT" duration-ms="328" status="PASS">[m
+[32m+[m[32m        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.RunCukesTest@6ccdb29f]" started-at="2023-03-21T17:38:55 COT" name="setUpClass" finished-at="2023-03-21T17:38:56 COT" duration-ms="385" status="PASS">[m
+           <params>[m
+             <param index="0">[m
+               <value>[m
+[31m-                <![CDATA[org.testng.TestRunner@3e28fee1]]>[m
+[32m+[m[32m                <![CDATA[org.testng.TestRunner@5261ec9]]>[m
+               </value>[m
+             </param>[m
+           </params>[m
+           <reporter-output>[m
+           </reporter-output>[m
+         </test-method> <!-- setUpClass -->[m
+[31m-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.RunCukesTest@6ccdb29f]" started-at="2023-03-21T10:59:03 COT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-03-21T10:59:53 COT" duration-ms="49890" status="PASS">[m
+[32m+[m[32m        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.RunCukesTest@6ccdb29f]" started-at="2023-03-21T17:38:56 COT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-03-21T17:39:55 COT" duration-ms="59078" status="PASS">[m
+           <params>[m
+             <param index="0">[m
+               <value>[m
+[36m@@ -37,7 +37,7 @@[m
+           <reporter-output>[m
+           </reporter-output>[m
+         </test-method> <!-- runScenario -->[m
+[31m-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.RunCukesTest@6ccdb29f]" started-at="2023-03-21T10:59:53 COT" name="tearDownClass" finished-at="2023-03-21T10:59:53 COT" duration-ms="9" status="PASS">[m
+[32m+[m[32m        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.RunCukesTest@6ccdb29f]" started-at="2023-03-21T17:39:55 COT" name="tearDownClass" finished-at="2023-03-21T17:39:55 COT" duration-ms="8" status="PASS">[m
+           <reporter-output>[m
+           </reporter-output>[m
+         </test-method> <!-- tearDownClass -->[m

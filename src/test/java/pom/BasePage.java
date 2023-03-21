@@ -18,6 +18,8 @@ public class BasePage {
 	protected Properties properties = new Properties();	
 	protected Properties prop_HU05 = new Properties();
 	
+	
+
 	public BasePage(WebDriver driver)  {
 		this.driver = driver;		
 	}
@@ -28,16 +30,16 @@ public class BasePage {
 		options.addArguments("--remote-allow-origins=*");
 		driver = new ChromeDriver(options);
 		
-		driver.navigate().to(properties.getProperty("linkURL"));
+		driver.navigate().to(getProperties().getProperty("linkURL"));
 		driver.manage().window().maximize();	
 		
 		return driver;
 	}
 	
 	public void traerPropiedades() throws FileNotFoundException, IOException {
-		properties.load(new FileReader("properties/generalProperties.properties"));		
+		getProperties().load(new FileReader("properties/generalProperties.properties"));		
 		prop_HU05.load(new FileReader("properties/HU_05.properties"));		
-		System.setProperty(properties.getProperty("keyDriverCon"), properties.getProperty("valueDriverCon"));
+		System.setProperty(getProperties().getProperty("keyDriverCon"), getProperties().getProperty("valueDriverCon"));
 	}
 	
 	public void cerrarVentanaChrome() {
@@ -65,5 +67,13 @@ public class BasePage {
 	//Presencia de elemento
 	public void validate(By element) throws InterruptedException {
 		assertTrue(driver.findElement(element).isDisplayed());
+	}
+
+	public Properties getProperties() {
+		return properties;
+	}
+	
+	public Properties getProp_HU05() {
+		return prop_HU05;
 	}
 }
