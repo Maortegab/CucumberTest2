@@ -24,9 +24,6 @@ public class BasePage {
 
 	public WebDriver chromeDriverConnection() {
 //		WebDriver _driver = null;
-		
-		
-		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		driver = new ChromeDriver(options);
@@ -59,6 +56,11 @@ public class BasePage {
 	
 	public void writeOn(By element, String text) throws InterruptedException {
 		driver.findElement(element).sendKeys(text);
+	}
+	public String readOn(By element) throws InterruptedException {
+		String text = driver.findElement(element).getText();
+		return text;
+		
 	}
 	//Presencia de elemento
 	public void validate(By element) throws InterruptedException {

@@ -20,14 +20,14 @@
 Feature: HU 05 regla de validación No 1
   Se requiere validar los datos básicos de la reserva y los formatos correctos de esos datos
 
-	Scenario: ingresar a payment
-    Given ingreso a payment collector  
+	Background:
+    Given ingreso a payment collector web
     
     
   Scenario: Ingresar la reserva y dar click en el botón gestion para validar el resultado
     Given Se ingresa la reserva 
-    #When Se da click en botón gestión
-    #Then Validar que el texto de salida es <textoError>
+    When Se da click en botón gestión
+    Then Validar que el texto de salida es igual al esperado
     
     #Examples: 
       #| reserva  			 | textoError        |

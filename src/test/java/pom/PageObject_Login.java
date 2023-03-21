@@ -24,7 +24,7 @@ public class PageObject_Login extends BasePage {
 	// Campos Office 365
 	private By inputCorreoMcsft = By.id("i0116");
 	private By btnSiguienteUsuario = By.xpath("(//input[@id='idSIButton9'])[1]");	
-//	private String correo = properties.getProperty("userNameDxc");
+
 	
 
 	// camposOcta
@@ -34,16 +34,13 @@ public class PageObject_Login extends BasePage {
 	public By btnsendPush = By.xpath("//*[@id='form75']/div[2]/input");
 	public By btnBackToSingInOcta = By.xpath("//a[normalize-space()='Back to sign in']");
 	private By logoAvianca = By.xpath("(//p[@class='imglogin session-name'])[1]");
-//	private String password = properties.getProperty("passwordDxc");
-	
-	
-//	BasePage base = new BasePage();
+
 	
 	public void autenticacion() throws InterruptedException, IOException {
 		
 //		nuevaVentanaChrome();
-		traerPropiedades();
-		chromeDriverConnection();
+//		traerPropiedades();
+//		chromeDriverConnection();
 //		driver.navigate().to(properties.getProperty("linkURL"));		
 		
 		// Selecccionar link del login en pagina de login
@@ -51,8 +48,7 @@ public class PageObject_Login extends BasePage {
 		clickOn(botonIniciarSesion);
 
 		// Ingresar user en la pagina de microsoft
-		tiempoEspera(5, inputCorreoMcsft);
-//		correo = properties.getProperty("userNameDxc");
+		tiempoEspera(5, inputCorreoMcsft);//		
 //		writeOn(inputCorreoMcsft, correo);
 		writeOn(inputCorreoMcsft, properties.getProperty("userNameDxc"));
 		
@@ -70,11 +66,13 @@ public class PageObject_Login extends BasePage {
 
 	}
 
-	public void loginMicrosoft() throws InterruptedException, IOException {
-//		nuevaVentanaChrome();
+	
+	public void newWindow() throws InterruptedException, IOException {		
 		traerPropiedades();
 		chromeDriverConnection();
-//		driver.navigate().to(properties.getProperty("linkURL"));
+	}
+	
+	public void loginMicrosoft() throws InterruptedException, IOException {
 		// Selecccionar link del login en pagina de login
 		clickOn(botonIniciarSesion);
 
