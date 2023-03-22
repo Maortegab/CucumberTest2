@@ -22,6 +22,7 @@ public Page_Home(WebDriver driver) {
 	private By popUpTitle = By.xpath("(//p[@class='text-warning'])[1]");
 	private By button_Entendido = By.xpath("(//button[@aria-label='Entendido'])[1]");
 	private By buttonHome = By.xpath("(//img[@class='Icon-home'])[1]");
+	private By textoFormularioGestionPagos = By.xpath("(//p[@class='pnr-welcome-up'])[1]");
 			
 //	Métodos
 	public void newWindowHome() throws InterruptedException, IOException {
@@ -36,7 +37,7 @@ public Page_Home(WebDriver driver) {
 	}
 
 	public void ingresarReserva(String reserva) throws InterruptedException, IOException {		
-		tiempoEspera(1, campoCodigoRes);
+		tiempoEspera(5, campoCodigoRes);
 		writeOn(campoCodigoRes, reserva);				
 	}
 	
@@ -47,6 +48,12 @@ public Page_Home(WebDriver driver) {
 	public String traerTextoPopUp() throws InterruptedException {
 		tiempoEspera(15, popUpTextContent);
 		String texto = readOn(popUpTextContent);
+		return texto;
+	}
+	
+	public String traerTextoGestionPagos() throws InterruptedException {
+		tiempoEspera(10, textoFormularioGestionPagos);
+		String texto = readOn(textoFormularioGestionPagos);
 		return texto;
 	}
 	
@@ -63,6 +70,5 @@ public Page_Home(WebDriver driver) {
 		tiempoEspera(1, buttonHome);
 		clickOn(buttonHome);		
 	}
-
-	
+		
 }
