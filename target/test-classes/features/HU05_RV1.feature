@@ -24,24 +24,58 @@ Feature: HU 05 regla de validación No 1
     Given ingreso a payment collector web
     
     
-  Scenario: Ingresar la reserva y dar click en el botón gestion para validar el resultado
-    Given Se ingresa la reserva 
+  Scenario: Ingresar la reserva sin correo valido y dar click en el botón gestion para validar el resultado
+    Given Se ingresa la reserva sin correo valido
     When Se da click en botón gestión
     Then Validar que el texto de salida es igual al esperado
-    And Regresar a Home
     
-    #Examples: 
-      #| reserva  			 | textoError        |
-      #| res_HU_5_01 	 | "asdasd" 		     |
-      #| res_HU_5_02 	 | "asdasdd"    		 |
-
-  #@tag2
-  #Scenario Outline: Title of your scenario outline
-    #Given I want to write a step with <name>
-    #When I check for the <value> in step
-    #Then I verify the <status> in step
-#
-    #Examples: 
-      #| name  | value | status  |
-      #| name1 |     5 | success |
-      #| name2 |     7 | Fail    |
+    
+  Scenario: Ingresar la reserva sin telefono valido y dar click en el botón gestion para validar el resultado
+    Given Se ingresa la reserva sin telefono valido
+    When Se da click en botón gestión dos
+    Then Validar que el texto de salida es igual al esperado dos
+    
+    
+  #Scenario: Ingresar la reserva  y dar click en el botón gestion para validar el resultado
+    #Given Se ingresa la reserva 
+    #When Se da click en botón gestión
+    #Then Validar que el texto de salida es igual al esperado
+    #And Regresar a Home
+    #
+  #Scenario: Ingresar la reserva y dar click en el botón gestion para validar el resultado
+    #Given Se ingresa la reserva 
+    #When Se da click en botón gestión
+    #Then Validar que el texto de salida es igual al esperado
+    #And Regresar a Home
+    #
+  #Scenario: Ingresar la reserva y dar click en el botón gestion para validar el resultado
+    #Given Se ingresa la reserva 
+    #When Se da click en botón gestión
+    #Then Validar que el texto de salida es igual al esperado
+    #And Regresar a Home
+    #
+  #Scenario: Ingresar la reserva y dar click en el botón gestion para validar el resultado
+    #Given Se ingresa la reserva 
+    #When Se da click en botón gestión
+    #Then Validar que el texto de salida es igual al esperado
+    #And Regresar a Home
+    #
+  #Scenario: Ingresar la reserva y dar click en el botón gestion para validar el resultado
+    #Given Se ingresa la reserva 
+    #When Se da click en botón gestión
+    #Then Validar que el texto de salida es igual al esperado
+    #And Regresar a Home
+    #
+  #Scenario: Ingresar la reserva y dar click en el botón gestion para validar el resultado
+    #Given Se ingresa la reserva 
+    #When Se da click en botón gestión
+    #Then Validar que el texto de salida es igual al esperado
+    #And Regresar a Home
+    #
+  #Scenario: Ingresar la reserva y dar click en el botón gestion para validar el resultado
+    #Given Se ingresa la reserva 
+    #When Se da click en botón gestión
+    #Then Validar que el texto de salida es igual al esperado
+    #And Regresar a Home
+    #
+    

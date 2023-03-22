@@ -64,6 +64,9 @@ public class BasePage {
 		return text;
 		
 	}
+	public void clearText(By element) throws InterruptedException {
+		driver.findElement(element).clear();
+	}
 	//Presencia de elemento
 	public void validate(By element) throws InterruptedException {
 		assertTrue(driver.findElement(element).isDisplayed());

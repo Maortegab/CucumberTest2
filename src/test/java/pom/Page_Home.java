@@ -25,7 +25,6 @@ public Page_Home(WebDriver driver) {
 			
 //	Métodos
 	public void newWindowHome() throws InterruptedException, IOException {
-//		System.out.println("reserva: " + properties.getProperty("res_HU_5_01"));
 		traerPropiedades();
 		newWindow();
 		autenticacion();
@@ -36,10 +35,9 @@ public Page_Home(WebDriver driver) {
 		clickOn(guardarAmadeus);		
 	}
 
-	public void ingresarReserva() throws InterruptedException, IOException {		
+	public void ingresarReserva(String reserva) throws InterruptedException, IOException {		
 		tiempoEspera(1, campoCodigoRes);
-//		writeOn(campoCodigoRes, properties.getProperty("res_HU_5_01"));
-		writeOn(campoCodigoRes, "3EEFOW");			
+		writeOn(campoCodigoRes, reserva);				
 	}
 	
 	public void clickGestion() throws InterruptedException, IOException {	
@@ -47,14 +45,18 @@ public Page_Home(WebDriver driver) {
 	}
 	
 	public String traerTextoPopUp() throws InterruptedException {
-		tiempoEspera(10, popUpTextContent);
+		tiempoEspera(15, popUpTextContent);
 		String texto = readOn(popUpTextContent);
 		return texto;
 	}
 	
 	public void clickEntendidoPopUp() throws InterruptedException {
-		tiempoEspera(1, button_Entendido);
-		clickOn(button_Entendido);		
+		tiempoEspera(1, button_Entendido);		
+		clickOn(button_Entendido);
+	}
+	public void borrarTxt() throws InterruptedException {
+		tiempoEspera(1, campoCodigoRes);
+		clearText(campoCodigoRes);		
 	}
 	
 	public void clickHome() throws InterruptedException {
