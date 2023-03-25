@@ -85,7 +85,8 @@ public class HU05_RV1_Steps {
 	}
 	@Then("Validar que el texto de salida es igual al esperado cuatro")
 	public void validar_que_el_texto_de_salida_es_igual_al_esperado_cuatro() throws InterruptedException{
-		assertTrue(home.traerTextoGestionPagos().contains(home.getProp_HU05().getProperty("texto_HU_5_04")),"El mensaje no coincide");		
+		assertTrue(home.traerTextoGestionPagos().contains(home.getProp_HU05().getProperty("texto_HU_5_04")),"El mensaje no coincide");
+		home.clickEntendidoPopUp();
 		home.cerrarNavegador();
 	}
 	
