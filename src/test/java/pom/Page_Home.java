@@ -41,7 +41,8 @@ public Page_Home(WebDriver driver) {
 		writeOn(campoCodigoRes, reserva);				
 	}
 	
-	public void clickGestion() throws InterruptedException, IOException {	
+	public void clickGestion() throws InterruptedException, IOException {
+		tiempoEspera(2, campoCodigoRes);
 		clickOn(botonGestion);
 	}
 	

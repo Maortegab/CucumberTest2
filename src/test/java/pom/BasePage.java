@@ -11,13 +11,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import utilidadesExcel.ReadExcelFile;
+
 public class BasePage {
 	
 	protected WebDriver driver;
 //	Instancias de los archivos properties
 	protected Properties properties = new Properties();	
 	protected Properties prop_HU05 = new Properties();
+	protected Properties prop_HU06 = new Properties();
 	
+	
+
 	
 
 	public BasePage(WebDriver driver)  {
@@ -37,9 +42,10 @@ public class BasePage {
 	}
 	
 	public void traerPropiedades() throws FileNotFoundException, IOException {
-		getProperties().load(new FileReader("properties/generalProperties.properties"));		
-		prop_HU05.load(new FileReader("properties/HU_05.properties"));		
-		System.setProperty(getProperties().getProperty("keyDriverCon"), getProperties().getProperty("valueDriverCon"));
+		properties.load(new FileReader("properties/generalProperties.properties"));		
+		prop_HU05.load(new FileReader("properties/HU_05.properties"));	
+		prop_HU06.load(new FileReader("properties/HU_06.properties"));
+		System.setProperty(properties.getProperty("keyDriverCon"), getProperties().getProperty("valueDriverCon"));
 	}
 	
 	public void cerrarVentanaChrome() {
@@ -67,6 +73,11 @@ public class BasePage {
 	public void clearText(By element) throws InterruptedException {
 		driver.findElement(element).clear();
 	}
+	
+	public void traerReserva(ReadExcelFile leer, Properties propiedades) throws Exception{
+		leer.getCellValue(propiedades.getProperty("filePathExcel"), "Sheet1", 1, 0);
+	}
+	
 	//Presencia de elemento
 	public void validate(By element) throws InterruptedException {
 		assertTrue(driver.findElement(element).isDisplayed());
@@ -78,5 +89,9 @@ public class BasePage {
 	
 	public Properties getProp_HU05() {
 		return prop_HU05;
+	}
+	
+	public Properties getProp_HU06() {
+		return prop_HU06;
 	}
 }
